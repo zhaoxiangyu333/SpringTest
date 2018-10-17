@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 命名空间的作用是对SQL进行分类管理，起到隔离SQL的作用，如果使用mapper代理，namespace有特殊重要作用 -->
+<mapper namespace="cn.blz.test.dao.order.OrderDao">
+    <resultMap id="orderResult" type="Order">
+        <id column="orderId" property="orderId"/>
+        <result column="user_id" property="userId"/>
+    </resultMap>
+
+    <!--sql片段集-->
+    <sql id="queryDynamic">
+        <if test="user.cname != null and user.cname != ''">
+            and u.`cname` LIKE concat('%',#{user.cname},'%')
+        </if>
+        <if test="state != null and state != ''">
+            and o.`state`=#{state}
+        </if>
+    </sql>
+
+    <select id="getOrders" parameterType="map" resultMap="orderResult">
+        SELECT o.orderId,u.`user_id` FROM mybatis_order o INNER JOIN mybatis_user u ON o.`userId`=u.`user_id` WHERE u.`cname` LIKE concat('%',#{user.cname},'%');
+    </select>
+
+    <select id="getOrdersDynamic" parameterType="map" resultMap="orderResult">
+        select o.`orderId`,u.`user_id` from mybatis_order o inner join mybatis_user u on o.`userId`=u.`user_id` where
+        1=1
+        <include refid="queryDynamic"/>
+        ;
+    </select>
+
+    <select id="getOrdersBatch" parameterType="list" resultMap="orderResult">
+        select o.`orderId`,u.`user_id` from mybatis_order o inner join mybatis_user u on o.`userId`=u.`user_id` where
+        1=1
+          <foreach collection="list" item="item" open="and(" close=")" separator="or">
+              u.user_id=#{item}
+          </foreach>
+        ;
+    </select>
+
+</mapper>
