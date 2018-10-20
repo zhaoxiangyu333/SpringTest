@@ -15,7 +15,8 @@
     </settings>
     <!--别名-->
     <typeAliases>
-        <package name="cn.blz.test.dto"/>
+        <package name="cn.blz.demo.order.dto"/>
+        <package name="cn.blz.demo.user.dto"/>
     </typeAliases>
     <!-- 以下配置不需掌握，和Spring整合后，以下配置将被废除 -->
     <environments default="development">
@@ -31,7 +32,8 @@
     </environments>
     <!--mapper映射-->
     <mappers>
-        <package name="cn.blz.test.dao.order"/>
+        <package name="cn.blz.demo.order.dao"/>
+        <package name="cn.blz.demo.user.dao"/>
     </mappers>
 
 </configuration>

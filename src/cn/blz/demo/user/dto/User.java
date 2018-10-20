@@ -1,4 +1,4 @@
-package cn.blz.test.dto;
+package cn.blz.demo.user.dto;
 
 public class User {
     private String user_id;

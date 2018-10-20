@@ -1,6 +1,6 @@
-package cn.blz.test.service;
+package cn.blz.demo.order.service;
 
-import cn.blz.test.dao.order.OrderDao;
+import cn.blz.demo.order.dao.OrderDao;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,7 +10,7 @@ import java.util.Map;
 public class OrderService {
     private OrderDao orderDao;
 
-    public OrderService(OrderDao orderDao) {
+    public void setOrderDao(OrderDao orderDao) {
         this.orderDao = orderDao;
     }
 

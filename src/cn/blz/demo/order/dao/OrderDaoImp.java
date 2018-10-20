@@ -1,6 +1,6 @@
-package cn.blz.test.dao.order;
+package cn.blz.demo.order.dao;
 
-import cn.blz.test.dto.User;
+import cn.blz.demo.user.dto.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -8,7 +8,6 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -45,7 +44,7 @@ public class OrderDaoImp implements OrderDao {
         User user = new User();
         user.setCname("李");
         args.put("user", user);
-        args.put("state",2);
+        args.put("state", 2);
         List<Map> list = mapper.getOrdersDynamic(args);
         session.close();
         return list;

@@ -5,6 +5,9 @@
       <configuration>
         <fileset id="fileset" name="Spring" removed="false">
           <file>file://$MODULE_DIR$/src/resources/spring.xml</file>
+          <file>file://$MODULE_DIR$/src/resources/spring/order.xml</file>
+          <file>file://$MODULE_DIR$/src/resources/spring/user.xml</file>
+          <file>file://$MODULE_DIR$/src/resources/spring/messageSource.xml</file>
         </fileset>
       </configuration>
     </facet>

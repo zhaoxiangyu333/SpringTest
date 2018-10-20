@@ -1,4 +1,4 @@
-package cn.blz.test.dao.order;
+package cn.blz.demo.order.dao;
 
 import java.util.List;
 import java.util.Map;

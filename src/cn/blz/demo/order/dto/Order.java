@@ -1,4 +1,4 @@
-package cn.blz.test.dto;
+package cn.blz.demo.order.dto;
 
 import java.util.Date;
 
