@@ -1,7 +1,9 @@
 package cn.blz.demo.order.dto;
 
-import java.util.Date;
+import org.springframework.stereotype.Component;
 
+import java.util.Date;
+@Component
 public class Order {
     private String orderId;
     private String userId;
